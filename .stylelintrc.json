@@ -1,0 +1,26 @@
+{
+    "extends": [
+        "stylelint-config-standard"
+    ],
+    "rules": {
+        "color-no-invalid-hex": true,
+        "font-family-no-duplicate-names": true,
+        "unit-no-unknown": true,
+        "property-no-unknown": true,
+        "block-no-empty": true,
+        "selector-pseudo-class-no-unknown": true,
+        "selector-pseudo-element-no-unknown": true,
+        "selector-type-no-unknown": true,
+        "no-duplicate-at-import-rules": true,
+        "no-duplicate-selectors": true,
+        "no-empty-source": true,
+        "selector-class-pattern": null,
+        "keyframes-name-pattern": null,
+        "declaration-block-no-duplicate-properties": null,
+        "no-descending-specificity": null
+    },
+    "ignoreFiles": [
+        "build/**/*",
+        "node_modules/**/*"
+    ]
+}
