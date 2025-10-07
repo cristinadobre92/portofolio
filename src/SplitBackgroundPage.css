@@ -1,0 +1,383 @@
+/* Full page layout */
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background halves */
+.top-half {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #6072B2; /* blue */
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 70%);
+}
+
+.bottom-half {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #613572; /* purple */
+  clip-path: polygon(0 70%, 100% 40%, 100% 100%, 0 100%);
+}
+
+/* Floating rectangle */
+.floating-box {
+  position: absolute;
+  inset: 40px 30px;
+  max-width: 1200px;
+  max-height: 800px;
+  width: calc(100vw - 60px);
+  height: calc(100vh - 80px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFD49C;
+  border-radius: 8px;
+  box-shadow: 
+    0 15px 35px rgb(0 0 0 / 15%),
+    0 5px 15px rgb(0 0 0 / 10%),
+    0 0 0 1px rgb(255 255 255 / 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translate(-50%, -50%) translateY(-2px);
+}
+
+/* Buttons */
+.top-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Divider line */
+.divider-line {
+  width: 100%;
+  height: 1px;
+  background-color: #6072B2;
+  margin: 0 0 8px;
+}
+
+.bottom-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* Common button styling */
+button {
+  padding: 12px;
+  border: solid transparent;
+  background-color: transparent;
+  color: #613572;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #a98f6d;
+}
+
+/* Default welcome overlay */
+.default-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1000;
+  animation: fadeIn 1s ease-out;
+}
+
+.default-overlay::before {
+  content: '';
+  position: absolute;
+  width: min(300px, 60%);
+  height: min(300px, 60%);
+  border: 3px solid #6072B2;
+  border-radius: 50%;
+  z-index: 1001;
+  animation: scaleIn 1.2s ease-out 0.3s both, rotateWithDeviation 3s linear infinite 1.5s;
+}
+
+.default-overlay::after {
+  content: '';
+  position: absolute;
+  width: min(280px, 56%);
+  height: min(280px, 56%);
+  border: 5px solid #6072B2;
+  border-radius: 50%;
+  z-index: 1002;
+  animation: scaleIn 1.2s ease-out 0.3s both;
+}
+
+.default-text {
+  color: #613572;
+  font-size: 32px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 2px;
+  animation: fadeInUp 1.2s ease-out 0.3s both;
+}
+
+.presentation-image {
+  max-width: min(300px, 80%);
+  max-height: 60%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  animation: fadeInUp 1.2s ease-out 0.3s both;
+  z-index: 1000;
+}
+
+/* Social media overlays - common styles */
+.github-overlay,
+.linkedin-overlay,
+.instagram-overlay,
+.goodreads-overlay,
+.about-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1000;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.github-overlay.exiting,
+.linkedin-overlay.exiting,
+.instagram-overlay.exiting,
+.goodreads-overlay.exiting,
+.about-overlay.exiting {
+  animation: fadeOut 0.4s ease-in;
+}
+
+.github-content,
+.linkedin-content,
+.instagram-content,
+.goodreads-content,
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.github-overlay.exiting .github-content,
+.linkedin-overlay.exiting .linkedin-content,
+.instagram-overlay.exiting .instagram-content,
+.goodreads-overlay.exiting .goodreads-content,
+.about-overlay.exiting .about-content {
+  animation: slideOutDown 0.4s ease-in;
+}
+
+.profile-image {
+  width: clamp(80px, 15vw, 120px);
+  height: clamp(80px, 15vw, 120px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #6072B2;
+  box-shadow: 
+    0 8px 20px rgb(0 0 0 / 15%),
+    0 3px 8px rgb(0 0 0 / 10%);
+  animation: scaleIn 1.2s ease-out 0.3s both, rotateWithDeviation 3s linear infinite 1.5s;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes rotateWithDeviation {
+  0% { transform: translate(1px, 0); }
+  5% { transform: translate(0, 1px); }
+  10% { transform: translate(-1px, 0); }
+  15% { transform: translate(0, -1px); }
+  20% { transform: translate(1px, 1px); }
+  25% { transform: translate(-1px, 0); }
+  30% { transform: translate(0, 1px); }
+  35% { transform: translate(1px, -1px); }
+  40% { transform: translate(0, 0); }
+  45% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, 0); }
+  55% { transform: translate(0, -1px); }
+  60% { transform: translate(-1px, 0); }
+  65% { transform: translate(1px, 1px); }
+  70% { transform: translate(0, -1px); }
+  75% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, 0); }
+  85% { transform: translate(0, 1px); }
+  90% { transform: translate(-1px, -1px); }
+  95% { transform: translate(1px, 0); }
+  100% { transform: translate(0, 1px); }
+}
+
+
+
+.github-logo,
+.linkedin-logo,
+.instagram-logo,
+.goodreads-logo {
+  width: clamp(60px, 12vw, 80px);
+  height: clamp(60px, 12vw, 80px);
+  animation: scaleIn 0.6s ease-out 0.1s both;
+}
+
+.about-overlay.exiting .about-text,
+.github-overlay.exiting .github-logo,
+.linkedin-overlay.exiting .linkedin-logo,
+.instagram-overlay.exiting .instagram-logo,
+.goodreads-overlay.exiting .goodreads-logo {
+  animation: scaleOut 0.3s ease-in both;
+}
+
+.github-text,
+.linkedin-text,
+.instagram-text,
+.goodreads-text,
+.about-text {
+  background-color: rgb(255 217 170 / 95%);
+  color: #613572;
+  padding: clamp(16px, 3vw, 20px) clamp(20px, 5vw, 32px);
+  border-radius: 8px;
+  box-shadow: 
+    0 15px 35px rgb(0 0 0 / 15%),
+    0 5px 15px rgb(0 0 0 / 10%);
+  text-align: center;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 500;
+  animation: fadeInUp 0.7s ease-out 0.2s both;
+  max-width: 95%;
+  width: 100%;
+}
+
+.github-overlay.exiting .github-text,
+.linkedin-overlay.exiting .linkedin-text,
+.instagram-overlay.exiting .instagram-text,
+.goodreads-overlay.exiting .goodreads-text {
+  animation: fadeOutDown 0.3s ease-in 0.1s both;
+}
+
+/* Mobile responsive spacing */
+@media (width <= 768px) {
+  .floating-box {
+    width: calc(100vw - 16px);
+    height: calc(100vh - 16px);
+    max-width: none;
+    max-height: none;
+  }
+  
+  .about-text {
+    padding: 8px 12px;
+    font-size: clamp(12px, 2.5vw, 14px);
+    line-height: 1.2;
+  }
+  
+  /* Disable hover on mobile, use tap instead */
+  .bottom-button button {
+    pointer-events: auto;
+  }
+}
