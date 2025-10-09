@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.97f8b3fb.css",
-    "main.js": "/static/js/main.2b9860c1.js",
-    "static/js/453.dd079ce8.chunk.js": "/static/js/453.dd079ce8.chunk.js",
-    "static/media/presentation.png": "/static/media/presentation.439ae93e58f7871c5748.png",
-    "static/media/photo.jpeg": "/static/media/photo.92aa530d9314aded4c1d.jpeg",
-    "index.html": "/index.html",
-    "main.97f8b3fb.css.map": "/static/css/main.97f8b3fb.css.map",
-    "main.2b9860c1.js.map": "/static/js/main.2b9860c1.js.map",
-    "453.dd079ce8.chunk.js.map": "/static/js/453.dd079ce8.chunk.js.map"
+    "main.css": "/cristinadobre92/portofolio/static/css/main.97f8b3fb.css",
+    "main.js": "/cristinadobre92/portofolio/static/js/main.a061a5fe.js",
+    "static/js/453.dd079ce8.chunk.js": "/cristinadobre92/portofolio/static/js/453.dd079ce8.chunk.js",
+    "static/media/presentation.png": "/cristinadobre92/portofolio/static/media/presentation.439ae93e58f7871c5748.png",
+    "static/media/photo.jpeg": "/cristinadobre92/portofolio/static/media/photo.92aa530d9314aded4c1d.jpeg",
+    "index.html": "/cristinadobre92/portofolio/index.html",
+    "main.97f8b3fb.css.map": "/cristinadobre92/portofolio/static/css/main.97f8b3fb.css.map",
+    "main.a061a5fe.js.map": "/cristinadobre92/portofolio/static/js/main.a061a5fe.js.map",
+    "453.dd079ce8.chunk.js.map": "/cristinadobre92/portofolio/static/js/453.dd079ce8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.97f8b3fb.css",
-    "static/js/main.2b9860c1.js"
+    "static/js/main.a061a5fe.js"
   ]
 }
